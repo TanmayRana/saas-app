@@ -37,7 +37,7 @@ const Signup = () => {
     );
   }
 
-  async function submit(e) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!isLoaded) return;
 
@@ -52,7 +52,8 @@ const Signup = () => {
 
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
       setPendingVerification(true);
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       const errorMessage =
         err?.errors?.[0]?.message || "An unexpected error occurred.";
       setError(errorMessage);
@@ -61,7 +62,7 @@ const Signup = () => {
     }
   }
 
-  async function onPressVerify(e) {
+  async function onPressVerify(e: React.FormEvent) {
     e.preventDefault();
     if (!isLoaded) return;
 
@@ -81,7 +82,8 @@ const Signup = () => {
       } else {
         setError("Verification failed. Please try again.");
       }
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       const errorMessage =
         err?.errors?.[0]?.message || "Verification failed. Please try again.";
       setError(errorMessage);

@@ -57,6 +57,7 @@ const SignIn = () => {
       } else {
         console.log(JSON.stringify(result, null, 2));
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const errorMessage =
         error?.errors?.[0]?.message || "An unexpected error occurred.";

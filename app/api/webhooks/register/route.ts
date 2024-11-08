@@ -82,6 +82,7 @@ export async function POST(req: Request) {
       });
 
       console.log("newUser=", newUser);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return Response.json(
         { message: "Error creating user in database" },
