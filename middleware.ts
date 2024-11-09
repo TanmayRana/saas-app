@@ -15,9 +15,9 @@ export default clerkMiddleware(async (auth, req) => {
   if (userId) {
     try {
       const user = await client.users.getUser(userId);
-      console.log("clerkClient User=", user);
+      // console.log("clerkClient User=", user);
       const role = user.publicMetadata.role as string | undefined;
-      console.log("clerkClient Role=", role);
+      // console.log("clerkClient Role=", role);
 
       if (role === "admin" && req.nextUrl.pathname === "/dashboard") {
         return NextResponse.redirect(new URL("/admin/dashboard", req.url));
